@@ -5,21 +5,21 @@
 class Claustro < Formula
   desc "Disposable Docker sandboxes for Claude Code"
   homepage "https://github.com/uniforgeai/claustro"
-  version "0.1.0"
+  version "0.2.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/uniforgeai/claustro/releases/download/v0.1.0/claustro_0.1.0_darwin_amd64.zip"
-      sha256 "e4da2fa18ce9329a70d29b95cbfa9ee39254ec3cd64c7db31272f776ba1424d2"
+      url "https://github.com/uniforgeai/claustro/releases/download/v0.2.0/claustro_0.2.0_darwin_amd64.zip"
+      sha256 "919049d9d02d5b548cc12874f0f4eb73017ba981604c811f3bc84b9bcb1318d7"
 
       define_method(:install) do
         bin.install "claustro"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/uniforgeai/claustro/releases/download/v0.1.0/claustro_0.1.0_darwin_arm64.zip"
-      sha256 "7729e4045d29851f772b56030cfd545e954fc27b6dd5df13efd50e397be4e72b"
+      url "https://github.com/uniforgeai/claustro/releases/download/v0.2.0/claustro_0.2.0_darwin_arm64.zip"
+      sha256 "0caf62da40da5cdf63d842f5b3dd45bde185018f82f6e1d01aa2c43d505f6565"
 
       define_method(:install) do
         bin.install "claustro"
@@ -29,15 +29,15 @@ class Claustro < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/uniforgeai/claustro/releases/download/v0.1.0/claustro_0.1.0_linux_amd64.tar.gz"
-      sha256 "b396dc007df38ef3c20a9cb715a78663e9ca3e2f869024fa76ff16b08718a3ff"
+      url "https://github.com/uniforgeai/claustro/releases/download/v0.2.0/claustro_0.2.0_linux_amd64.tar.gz"
+      sha256 "7278c597186a754ba9d7f0a7cd5f4fdb07232f0ef6934d3ed86551a3d1e28a83"
       define_method(:install) do
         bin.install "claustro"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/uniforgeai/claustro/releases/download/v0.1.0/claustro_0.1.0_linux_arm64.tar.gz"
-      sha256 "f0465be68611779efca346f72eb4acea5dac95f0c2825936ce7f7f18f3a1bf07"
+      url "https://github.com/uniforgeai/claustro/releases/download/v0.2.0/claustro_0.2.0_linux_arm64.tar.gz"
+      sha256 "ade9a87023f3ca90f540949bdead4cbd0fada7ec732d181478f65486dd47d23f"
       define_method(:install) do
         bin.install "claustro"
       end
