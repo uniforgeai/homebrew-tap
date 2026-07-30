@@ -6,13 +6,13 @@ require_relative "lib/private_github_release_download_strategy"
 class Claustro < Formula
   desc "Disposable Docker sandboxes for Claude Code"
   homepage "https://github.com/uniforgeai/claustro"
-  version "0.6.1"
+  version "0.7.0"
   license "BUSL-1.1"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/uniforgeai/claustro/releases/download/v0.6.1/claustro_0.6.1_darwin_amd64.zip", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "d0b927b0a4294ec765b18d658c66c00a87a051d6a644ad749595684f50aefada"
+      url "https://github.com/uniforgeai/claustro/releases/download/v0.7.0/claustro_0.7.0_darwin_amd64.zip", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "9791c6e1b6de3854cc0378d54389d2ca6c6aef932ecbc79edd33db67a07a6e8d"
 
       define_method(:install) do
         bin.install "claustro"
@@ -20,8 +20,8 @@ class Claustro < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/uniforgeai/claustro/releases/download/v0.6.1/claustro_0.6.1_darwin_arm64.zip", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "2d14785aad73a5297b21a7fe472aac9f7523215c17ed6607136efd943ff1d820"
+      url "https://github.com/uniforgeai/claustro/releases/download/v0.7.0/claustro_0.7.0_darwin_arm64.zip", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "524d74ee7dd1c339b4180d625bd78125ba29ba457c93702563b42315473abdf4"
 
       define_method(:install) do
         bin.install "claustro"
@@ -32,16 +32,16 @@ class Claustro < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/uniforgeai/claustro/releases/download/v0.6.1/claustro_0.6.1_linux_amd64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "3ea052f1db875b6b4696427b93e3569d2f2945450819f9abf6d65eb9d88a643c"
+      url "https://github.com/uniforgeai/claustro/releases/download/v0.7.0/claustro_0.7.0_linux_amd64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "ae381159935d920d0e199a49b3e51ac9b9a1912f2860a9dec477063bb5763795"
       define_method(:install) do
         bin.install "claustro"
         bin.install "claustrod"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/uniforgeai/claustro/releases/download/v0.6.1/claustro_0.6.1_linux_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "4e2bb8081015001105a6408fceab9b3f256c06d58d4cb60cfe9115bb1e29d6c2"
+      url "https://github.com/uniforgeai/claustro/releases/download/v0.7.0/claustro_0.7.0_linux_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "3580c109c063d177f7c6de233ac1ad580685aa14fedf3beaa304ad60a3eccf03"
       define_method(:install) do
         bin.install "claustro"
         bin.install "claustrod"
