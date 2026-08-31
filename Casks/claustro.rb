@@ -2,30 +2,29 @@
 cask "claustro" do
   require_relative "../lib/private_github_release_download_strategy"
 
-  version "0.9.1"
+  version "0.10.0"
 
   on_macos do
-    on_intel do
-      sha256 "3f3fa5da9286ad2f70a8a656d62ee811829f3b29c34f21bf2163c618b81da466"
-      url "https://github.com/uniforgeai/claustro/releases/download/v#{version}/claustro_#{version}_darwin_amd64.zip",
-        using: GitHubPrivateRepositoryReleaseDownloadStrategy
-    end
     on_arm do
-      sha256 "6a1a2d3580e1ad08539ab5de0f5367c5ea65e66735d08894a34733a048611ee9"
+      sha256 "a45dd500af8b1d2dcea8009559f7897d77ff046c8443e01ddbb0078e63d32f7f"
       url "https://github.com/uniforgeai/claustro/releases/download/v#{version}/claustro_#{version}_darwin_arm64.zip",
         using: GitHubPrivateRepositoryReleaseDownloadStrategy
     end
-  end
-
-  on_linux do
     on_intel do
-      sha256 "63f35aee1317e02f49109ddf4904c2c278a89acd5ad5ca2e24027034523ccbc6"
-      url "https://github.com/uniforgeai/claustro/releases/download/v#{version}/claustro_#{version}_linux_amd64.tar.gz",
+      sha256 "97ec5ce940f27060f3644a8ec10f425601ae8dc263d9069722edb55e74f521b6"
+      url "https://github.com/uniforgeai/claustro/releases/download/v#{version}/claustro_#{version}_darwin_amd64.zip",
         using: GitHubPrivateRepositoryReleaseDownloadStrategy
     end
+  end
+  on_linux do
     on_arm do
-      sha256 "72238a51448c96a63c2475c4fc0efec103528c0c939d74aca4ae9a33c3c74ca1"
+      sha256 "2f4dd8082e6f8e8c3e766dbb52132715718b635fdb182cb3fe298490176ea21c"
       url "https://github.com/uniforgeai/claustro/releases/download/v#{version}/claustro_#{version}_linux_arm64.tar.gz",
+        using: GitHubPrivateRepositoryReleaseDownloadStrategy
+    end
+    on_intel do
+      sha256 "77a48d2af68c2ce600a5e750c8dfe1a0167aeeddae3323815d2222f33bfbcc4f"
+      url "https://github.com/uniforgeai/claustro/releases/download/v#{version}/claustro_#{version}_linux_amd64.tar.gz",
         using: GitHubPrivateRepositoryReleaseDownloadStrategy
     end
   end
@@ -42,5 +41,4 @@ cask "claustro" do
   binary "claustrod"
 
   # No zap stanza required
-
 end
