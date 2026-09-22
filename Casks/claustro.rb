@@ -2,28 +2,36 @@
 cask "claustro" do
   require_relative "../lib/private_github_release_download_strategy"
 
-  version "0.13.8"
+  # Homebrew no longer accepts --no-quarantine. Drop Gatekeeper's
+  # attribute from this cask's staged directory only.
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-dr", "com.apple.quarantine", staged_path.to_s],
+                   must_succeed: false
+  end
+
+  version "0.13.9"
 
   on_macos do
     on_arm do
-      sha256 "9d907c30d5f800b82c27e2ca892ea3fb9740faef933c206a131860a06c805434"
+      sha256 "be7cd617f1d2c8b8d1faef0aefbb58c59204cf1b8be8ffdaabef484fc2ee577b"
       url "https://github.com/uniforgeai/claustro/releases/download/v#{version}/claustro_#{version}_darwin_arm64.zip",
         using: GitHubPrivateRepositoryReleaseDownloadStrategy
     end
     on_intel do
-      sha256 "972131a1b5817dfda662c84468c3eb2990e76a15c6b601e7cd8d2359b2088cf5"
+      sha256 "e26c2098cc36944ba749ac84ca1d4d7760792a23b49c8c78c7a12b3d03255c2e"
       url "https://github.com/uniforgeai/claustro/releases/download/v#{version}/claustro_#{version}_darwin_amd64.zip",
         using: GitHubPrivateRepositoryReleaseDownloadStrategy
     end
   end
   on_linux do
     on_arm do
-      sha256 "25298bc263adea7ca66015981a805a6228ed4642dbbf252b94013ba93a2e3645"
+      sha256 "9b14d355629e2882969655c2059222df4616fc756aa470328d41bfb8d085ddeb"
       url "https://github.com/uniforgeai/claustro/releases/download/v#{version}/claustro_#{version}_linux_arm64.tar.gz",
         using: GitHubPrivateRepositoryReleaseDownloadStrategy
     end
     on_intel do
-      sha256 "1c2e0fe17b0199a8cc16b0378b30d3869f7b3bada8c2863929fdb65fb2bdc387"
+      sha256 "c67fd0b9ad279744f60707998db4e27d07cd0de1b36bed5425ae39ab784a8683"
       url "https://github.com/uniforgeai/claustro/releases/download/v#{version}/claustro_#{version}_linux_amd64.tar.gz",
         using: GitHubPrivateRepositoryReleaseDownloadStrategy
     end
