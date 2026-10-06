@@ -2,28 +2,28 @@
 cask "claustro" do
   require_relative "../lib/private_github_release_download_strategy"
 
-  version "0.15.1"
+  version "0.15.2"
 
   on_macos do
     on_arm do
-      sha256 "f57db568289da13caf73ddef080f667b09ae5122a1ebdd56b7525c87baa94857"
+      sha256 "3eeb206ba34fc7291b65aee4d658ff5a2d2573f6f0f15633dd3c1e00d8a16d6d"
       url "https://github.com/uniforgeai/claustro/releases/download/v#{version}/claustro_#{version}_darwin_arm64.zip",
         using: GitHubPrivateRepositoryReleaseDownloadStrategy
     end
     on_intel do
-      sha256 "68149776374df9d45a14797038dfc0c2815d09eff18db2b5570c00d059a232be"
+      sha256 "14c9c45634deec9b0eba17db1cec7a0cfe5113d092694b993cec9df150633134"
       url "https://github.com/uniforgeai/claustro/releases/download/v#{version}/claustro_#{version}_darwin_amd64.zip",
         using: GitHubPrivateRepositoryReleaseDownloadStrategy
     end
   end
   on_linux do
     on_arm do
-      sha256 "dbcc66e9a96ff6491c544e3e71714bc816b9f6ca0d1f11fd1d3e089fe7efed57"
+      sha256 "7db0ea3038d4c17b2f7847921eae0d1094f8e774cfe284f83b0885f75aa839c2"
       url "https://github.com/uniforgeai/claustro/releases/download/v#{version}/claustro_#{version}_linux_arm64.tar.gz",
         using: GitHubPrivateRepositoryReleaseDownloadStrategy
     end
     on_intel do
-      sha256 "64bfc945714ab56197d475abb0574fd2f1987d4648322dda5e751765e1da5f85"
+      sha256 "cd6a18ff8c12250ebbe48f653a2ad0d4560527da781404f6f20c0e01a92271de"
       url "https://github.com/uniforgeai/claustro/releases/download/v#{version}/claustro_#{version}_linux_amd64.tar.gz",
         using: GitHubPrivateRepositoryReleaseDownloadStrategy
     end
