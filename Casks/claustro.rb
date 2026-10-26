@@ -2,9 +2,9 @@ require_relative "../lib/private_github_release_download_strategy"
 require "securerandom"
 
 cask "claustro" do
-  version "0.16.5"
-  sha256 "dda9c4f82560ee1897bc18332fe2de1fabab8df872c818f1b97cf4c9af696e74"
-  url "https://github.com/uniforgeai/claustro/releases/download/v0.16.5/claustro_companion_0.16.5_darwin_arm64.zip", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+  version "0.16.6"
+  sha256 "8017c25f8c54a955facbe786bd81fc9d95e9f8a957b8461e6ba8979ac0f8e4f1"
+  url "https://github.com/uniforgeai/claustro/releases/download/v0.16.6/claustro_companion_0.16.6_darwin_arm64.zip", using: GitHubPrivateRepositoryReleaseDownloadStrategy
   name "Claustro"
   desc "Persistent coding threads in disposable Docker sandboxes"
   homepage "https://github.com/uniforgeai/claustro"
