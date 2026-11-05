@@ -2,29 +2,33 @@ require_relative "../lib/private_github_release_download_strategy"
 require "securerandom"
 
 cask "claustro" do
-  version "0.17.1"
-  sha256 "cf5a88b28d64828c0158cd05fde458ba83bff0223e01962da89e13ffafe5af0b"
-  url "https://github.com/uniforgeai/claustro/releases/download/v0.17.1/claustro_companion_0.17.1_darwin_arm64.zip", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+  version "0.17.2"
+  arch arm: "arm64", intel: "amd64"
+  on_arm do
+    sha256 "5e4a9491183fe48b4fce6938422313b1548c50f4f689ba48da35fdf9c511ccca"
+  end
+  on_intel do
+    sha256 "cafde68284b5bd6c118950bc69456f51f6dd02e14bcdd4ccfc01e2047e007a4d"
+  end
+  url "https://github.com/uniforgeai/claustro/releases/download/v0.17.2/claustro_#{version}_darwin_#{arch}.zip",
+      using: GitHubPrivateRepositoryReleaseDownloadStrategy
   name "Claustro"
   desc "Persistent coding threads in disposable Docker sandboxes"
   homepage "https://github.com/uniforgeai/claustro"
-  depends_on arch: :arm64
   depends_on macos: ">= :ventura"
 
   preflight do
-    executable = "#{appdir}/ClaustroCompanion.app/Contents/MacOS/claustro"
-    executable = "#{HOMEBREW_PREFIX}/bin/claustro" unless File.executable?(executable)
+    executable = "#{HOMEBREW_PREFIX}/bin/claustro"
     if File.executable?(executable)
       system_command executable, args: ["update", "--check-prepared"], sudo: false, must_succeed: true
     end
   end
 
-  app "ClaustroCompanion.app"
-  binary "#{appdir}/ClaustroCompanion.app/Contents/MacOS/claustro"
-  binary "#{appdir}/ClaustroCompanion.app/Contents/MacOS/claustrod"
+  binary "claustro"
+  binary "claustrod"
 
   uninstall_preflight do
-    executable = "#{appdir}/ClaustroCompanion.app/Contents/MacOS/claustro"
+    executable = "#{staged_path}/claustro"
     if File.executable?(executable)
       system_command executable,
                      args: ["host", "unregister", "--operation-id", "bundle-uninstall_#{SecureRandom.hex(12)}"],
@@ -33,9 +37,6 @@ cask "claustro" do
   end
 
   caveats <<~EOS
-    Claustro uses ad hoc execution signatures and is not notarized.
-    If macOS blocks first launch, approve Claustro in System Settings > Privacy & Security > Open Anyway,
-    then open the app again. App launch at login is off by default.
     Use claustro update for coordinated local updates. Remote hosts update explicitly and separately.
     Uninstall stops and unregisters the per-user service and retains state, drafts and sandboxes.
   EOS
