@@ -1,15 +1,15 @@
 require_relative "../lib/private_github_release_download_strategy"
 
 cask "claustro" do
-  version "0.19.0"
+  version "0.19.1"
   arch arm: "arm64", intel: "amd64"
   on_arm do
-    sha256 "9979a14def11a7e385ae3325f47d69eb0249ab0e112787c1f681b5a4ef7b77f1"
+    sha256 "0384af785927c72e7bdbdbe082b1234a19df13bc568a50dd91aa79c7d0561d10"
   end
   on_intel do
-    sha256 "b71e9a627c9f80a524cfcd9a5d4386dc79dbedc02e76c41faa20cb1b948205e1"
+    sha256 "f22d9afeb41fb16a06d030261d6f3f72caa4b57905c3f5a20d1227213fe54e51"
   end
-  url "https://github.com/uniforgeai/claustro/releases/download/v0.19.0/claustro_#{version}_darwin_#{arch}.zip",
+  url "https://github.com/uniforgeai/claustro/releases/download/v0.19.1/claustro_#{version}_darwin_#{arch}.zip",
       using: GitHubPrivateRepositoryReleaseDownloadStrategy
   name "Claustro"
   desc "Disposable Docker sandboxes with T3 and direct ACP"
