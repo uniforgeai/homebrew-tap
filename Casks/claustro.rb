@@ -17,7 +17,9 @@ cask "claustro" do
   depends_on macos: ">= :ventura"
 
   preflight do
-    executable = "#{staged_path}/claustro"
+    # The download is still quarantined. Only an existing installation can
+    # check daemon safety before the user authorizes the new binaries.
+    executable = "#{HOMEBREW_PREFIX}/bin/claustro"
     if File.executable?(executable)
       system_command executable, args: ["update", "--check-prepared"], sudo: false, must_succeed: true
     end
